@@ -1,6 +1,6 @@
-package main.java.assessment03;
+package main.java.learn.solar;
 
-public class assessment03 {
+public class Assessment03 {
 
     public static void main(String[] args) {
         System.out.println("Hello world");
