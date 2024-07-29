@@ -105,11 +105,16 @@ public class PanelService {
         return result;
     }
 
-    private PanelResult validate(Panel panel){
+    private PanelResult validate(Panel panel) throws DataException{
         PanelResult result = new PanelResult();
 
         if (panel == null) {
             result.addErrorMessage("Panel cannot be null.");
+            return result;
+        }
+
+        if (checkIfRowColumnTaken(panel)) {
+            result.addErrorMessage("Row and column are currently taken by another Panel.");
             return result;
         }
 
@@ -135,6 +140,19 @@ public class PanelService {
         }
 
         return result;
+    }
+
+    private boolean checkIfRowColumnTaken(Panel panelToAdd) throws DataException{
+        List<Panel> panels = repository.findAllPanels();
+        
+        for (Panel panel : panels) {
+            if (panel.getRow() == panelToAdd.getRow() && panel.getColumn() == panelToAdd.getColumn()) {
+
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public static void main(String[] args) throws DataException {

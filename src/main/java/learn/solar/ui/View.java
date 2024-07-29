@@ -73,17 +73,17 @@ public class View {
         String sectionName = readRequiredString("Section: ");
         int row = readRequiredInt("Row: ");
 
-        while (row > 250 || row < 1) {
-            System.out.print("Row must be between 1 and 250");
-            row = readRequiredInt("Row: ");
-        }
+        // while (row > 250 || row < 1) {
+        //     System.out.print("Row must be between 1 and 250");
+        //     row = readRequiredInt("Row: ");
+        // }
 
         int column = readRequiredInt("Column: ");
 
-        while (column > 250 || column < 0) {
-            System.out.print("Column must be between 0 and 250");
-            row = readRequiredInt("Column: ");
-        }
+        // while (column > 250 || column < 0) {
+        //     System.out.print("Column must be between 0 and 250");
+        //     row = readRequiredInt("Column: ");
+        // }
 
         Material material = Material.fromMaterialName(console.nextLine());
 
@@ -133,12 +133,12 @@ public class View {
         return s;
     }
 
-    private int readRequiredInt(String prompt){
+    public int readRequiredInt(String prompt){
         System.out.print(prompt);
         Integer num = readInt(console.nextLine());
 
-        while (num == null) {
-            System.out.print("Please enter a number: ");
+        while (num == null || num < 1 || num > 250) {
+            System.out.print("Please enter a number between 1 and 250: ");
             num = readInt(console.nextLine());
         }
 

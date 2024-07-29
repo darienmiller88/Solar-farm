@@ -6,6 +6,7 @@ import java.util.Scanner;
 import learn.solar.data.DataException;
 import learn.solar.domain.PanelResult;
 import learn.solar.domain.PanelService;
+import learn.solar.models.Material;
 import learn.solar.models.Panel;
 
 public class Controller {
@@ -29,7 +30,7 @@ public class Controller {
         this.service = service;
     }
 
-    public void run(){ 
+    public void run() throws DataException{ 
         System.out.println("Welcome to Solar Farm");
         System.out.println("===================");
 
@@ -46,7 +47,7 @@ public class Controller {
                     addPanel();
                     break;
                 case UPDATE_PANEL:
-
+                    updatePanel();
                     break;
                 case REMOVE_PANEL:
 
@@ -100,14 +101,72 @@ public class Controller {
        PanelResult result = service.add(panel);
 
        if (result.isSuccess()) {
-            System.out.printf("Panel %s-%s-%s added", panel.getSection(), panel.getRow(), panel.getColumn())
+            System.out.printf("Panel %s-%s-%s added", panel.getSection(), panel.getRow(), panel.getColumn());
        }else{
             System.out.println(result);
        }
     }
 
-    private void updatePanel(){
-        
+    private void updatePanel() throws DataException{
+        System.out.println("Update a Panel");
+        System.out.println("==============");
+
+        String sectionName = readRequiredString("Section: ");
+        int row = view.readRequiredInt("Row: ");
+        int column = view.readRequiredInt("Column: ");
+
+        List<Panel> panels = service.findAllPanels();
+        Panel panelToUpdate = null;
+
+        for (Panel panel : panels) {
+            if (panel.getSection().equals(sectionName) && panel.getRow() == row && panel.getColumn() == column) {
+                panelToUpdate = panel;
+                break;
+            }
+        }
+
+        if (panelToUpdate == null) {
+            System.out.printf("Panel %s-%s-%s does not exist.", sectionName, row, column);
+        } else{
+            System.out.printf("Editing %s-%s-%s", sectionName, row, column);
+            System.out.println("Press [Enter] to keep original value.");
+
+            System.out.print("Section (" + sectionName + "): ");
+            String newSectionName = console.nextLine();
+
+            System.out.print("Row (" + row + "): ");
+            int newRow = console.nextInt();
+            console.nextLine();
+
+            System.out.print("Column (" + column + "): ");
+            int newColumn = console.nextInt();
+            console.nextLine();
+
+            System.out.print("Material (" + panelToUpdate.getMaterial().toString() + "): ");
+            Material newMaterial = Material.fromMaterialName(console.nextLine());
+
+            System.out.print("Installation Year (" + panelToUpdate.getInstallationYear() + "): ");
+            int newInstallationYear = console.nextInt();
+            console.nextLine();
+
+            System.out.print("Tracked (" + (panelToUpdate.isTracking() ? "yes" : "no") + ") [y/n]: ");
+            String newTracking = console.nextLine();
+
+            panelToUpdate.setSection(newSectionName.equals("") ? panelToUpdate.getSection() : newSectionName);
+            panelToUpdate.setRow(newRow);
+            panelToUpdate.setColumn(newColumn);
+            panelToUpdate.setMaterial(newMaterial == null ? panelToUpdate.getMaterial() : newMaterial);
+            panelToUpdate.setInstallationYear(newInstallationYear);
+            panelToUpdate.setTracking(newTracking.equals("y"));
+
+            PanelResult result = service.update(panelToUpdate);
+
+            if (!result.isSuccess()) {
+                System.out.println(result);
+            }else{
+                System.out.printf("Panel %s-%s-%s updated!", panelToUpdate.getSection(), panelToUpdate.getRow(), panelToUpdate.getColumn());
+            }
+        }   
     }
 
     private void deletePanel(){
