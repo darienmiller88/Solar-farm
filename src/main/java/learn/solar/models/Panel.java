@@ -81,14 +81,14 @@ public class Panel {
 
     @Override
     public String toString(){
-        return String.format("%s %s %s %s %s %s %s\n",
+        return String.format("%s %s %s %s %s %s %s",
                 id,
                 section,
                 row,
                 column,
                 installationYear,
                 material.toString(),
-                isTracking() ?  "not tracking" : "is tracking"
+                isTracking() ?  "yes" : "no"
         );
     }
 }

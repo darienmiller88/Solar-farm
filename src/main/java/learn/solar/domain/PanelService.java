@@ -1,7 +1,6 @@
 package learn.solar.domain;
 
 import java.util.List;
-import java.util.Objects;
 
 import learn.solar.data.DataException;
 import learn.solar.data.PanelFileRepository;
@@ -14,6 +13,11 @@ public class PanelService {
     public PanelService(PanelFileRepository repository){
         this.repository = repository;
     }
+
+    public List<Panel> findAllPanels() throws DataException{
+        return repository.findAllPanels();
+    }
+    
 
     /**
      * 
@@ -153,6 +157,7 @@ public class PanelService {
         Panel panel = new Panel(11, "TestSection", 12, 12, 2021,  Material.ASi, false);
         Panel panel2 = new Panel(22, "TestSection", 14, 14, 2021,  Material.ASi, false);
         
+        System.out.println(panel);
         service.add(panel);
         service.add(panel2);
 
@@ -165,9 +170,11 @@ public class PanelService {
         List<Panel> panels = repository.findAllPanels();
 
         for (Panel p : panels) {
-            System.out.println(p);
+            System.out.println(p.toString());
         }
 
-        // System.out.println("contains updated panel: " + panels.contains(updatedPanel));
+        System.out.println(updatedPanel.toString());
+
+        System.out.println("contains updated panel: " + panels.contains(updatedPanel));
     }
 }

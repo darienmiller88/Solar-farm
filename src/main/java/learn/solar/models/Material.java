@@ -1,11 +1,11 @@
 package learn.solar.models;
 
 public enum Material {
-    McSi("Multicrystalline Silicon"),
-    MonoSi("Monocrystalline Silicon"),
-    ASi("Amorphous Silicon"),
-    CdTe("Cadmium Telluride"),
-    CIGS("Copper Indium Gallium Selenide");
+    McSi("McSi"),
+    MonoSi("MonoSi"),
+    ASi("ASi"),
+    CdTe("CdTe"),
+    CIGS("CIGS");
 
     Material(String materialName){
         this.materialName = materialName;
@@ -15,6 +15,8 @@ public enum Material {
     public String toString(){
         return materialName;
     }
+
+    // public static is
 
     /**
      * 
@@ -28,7 +30,8 @@ public enum Material {
             }
         }
 
-        throw new IllegalArgumentException("No enum with the following name: " + materialName);
+        return null;
+        // throw new IllegalArgumentException("No enum with the following name: " + materialName);
     }
 
     private String materialName;
