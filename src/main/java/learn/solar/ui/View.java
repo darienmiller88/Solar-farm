@@ -8,22 +8,7 @@ import learn.solar.models.Material;
 import learn.solar.models.Panel;
 
 public class View {
-    private Scanner console;
-
-    public enum Options{
-        EXIT("0"), FIND("1"), ADD("2"), UPDATE("3"), REMOVE("4");
-
-        Options(String optionNumber){
-            this.optionNumber = optionNumber;
-        }
-
-        @Override
-        public String toString(){
-            return optionNumber;
-        }
-
-        private String optionNumber;
-    }
+    private Scanner console = new Scanner(System.in);
 
     public int chooseOptionFromMenu(){
         System.out.println("Main Menu");
@@ -36,7 +21,8 @@ public class View {
         System.out.print("Select [0-4]: ");
         String response = console.nextLine();
 
-        while (response != "1" && response != "2" && response != "3" && response != "4") {
+        while (!response.equals("0") && !response.equals("1") 
+            && !response.equals("2") && !response.equals("3") && !response.equals("4")) {
             System.out.println("Please select [0-4]");
             response = console.nextLine();
         }
@@ -85,6 +71,7 @@ public class View {
         //     row = readRequiredInt("Column: ");
         // }
 
+        System.out.print("Enter Material: ");
         Material material = Material.fromMaterialName(console.nextLine());
 
         while (material == null) {
@@ -93,14 +80,19 @@ public class View {
                 System.out.println(m.toString());
             }
 
+            System.out.print("\nEnter Material: ");
             material = Material.fromMaterialName(console.nextLine());
         }
 
-        int installationYear = readRequiredInt("Installation year: ");
+        System.out.print("Installation year: ");
+        int installationYear = console.nextInt();
+        console.nextLine();
 
         while (installationYear > 2024 || installationYear < 1950) {
-            System.out.println("Please enter an installation year between 1950 and 2024");
-            installationYear = readRequiredInt("Installation year: ");
+            System.out.println("Please enter an installation year between 1950 and 2024.");
+            System.out.print("Installation year: ");
+            installationYear = console.nextInt();
+            console.nextLine();
         }
 
         String tracked = readRequiredString("Tracked? [y/n]: ");

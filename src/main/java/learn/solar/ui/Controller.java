@@ -13,21 +13,12 @@ public class Controller {
     private View view;
     private PanelService service;
     private Scanner console;
-    public enum Options{
-        EXIT(0), FIND(1), ADD(2), UPDATE(3), REMOVE(4);
-
-        Options(int optionNumber){
-            this.optionNumber = optionNumber;
-        }
-
-        private int optionNumber;
-    }
-
     private final int EXIT = 0, FIND_PANEL = 1, ADD_PANEL = 2, UPDATE_PANEL = 3, REMOVE_PANEL = 4;
 
     public Controller(View view, PanelService service){
         this.view = view;
         this.service = service;
+        console = new Scanner(System.in);
     }
 
     public void run() throws DataException{ 
@@ -52,7 +43,6 @@ public class Controller {
                 case REMOVE_PANEL:
                     deletePanel();
                     break;
-            
                 default:
                     System.out.println("Unrecognized menu option.");
                     break;
@@ -101,7 +91,7 @@ public class Controller {
        PanelResult result = service.add(panel);
 
        if (result.isSuccess()) {
-            System.out.printf("Panel %s-%s-%s added", panel.getSection(), panel.getRow(), panel.getColumn());
+            System.out.printf("Panel %s-%s-%s added\n", panel.getSection(), panel.getRow(), panel.getColumn());
        }else{
             System.out.println(result);
        }
@@ -164,7 +154,7 @@ public class Controller {
             if (!result.isSuccess()) {
                 System.out.println(result);
             }else{
-                System.out.printf("Panel %s-%s-%s updated!", panelToUpdate.getSection(), panelToUpdate.getRow(), panelToUpdate.getColumn());
+                System.out.printf("Panel %s-%s-%s updated!\n", panelToUpdate.getSection(), panelToUpdate.getRow(), panelToUpdate.getColumn());
             }
         }   
     }
@@ -195,7 +185,7 @@ public class Controller {
             if (!result.isSuccess()) {
                 System.out.println(result);
             }else{
-                System.out.printf("Panel %s-%s-%s removed!", sectionName, row, column);
+                System.out.printf("Panel %s-%s-%s removed!\n", sectionName, row, column);
             }
         }
     }
