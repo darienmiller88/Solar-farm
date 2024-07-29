@@ -9,11 +9,11 @@ public class Panel {
     private Material material;
     private boolean tracking; 
 
-    Panel(){
+    public Panel(){
 
     }
 
-    Panel(int id, String section, int row, int column, int installationYear, Material material, boolean tracking){
+    public Panel(int id, String section, int row, int column, int installationYear, Material material, boolean tracking){
         this.id = id;
         this.section = section;
         this.row = row;
