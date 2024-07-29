@@ -47,4 +47,16 @@ public class PanelResult {
     public int hashCode() {
         return Objects.hash(messages, panel);
     }
+
+    @Override
+    public String toString(){
+        StringBuilder s = new StringBuilder();
+
+        for (String message : messages) {
+            s.append(message);
+            s.append(" ");
+        }
+
+        return s.toString();
+    }
 }

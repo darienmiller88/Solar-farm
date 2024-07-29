@@ -11,19 +11,33 @@ public class View {
     private Scanner console;
 
     public int chooseOptionFromMenu(){
+        System.out.println("Main Menu");
+        System.out.println("==============");
+        System.out.println("0. Exit");
+        System.out.println("1. Exit");
+        System.out.println("2. Exit");
+        System.out.println("3. Exit");
+        System.out.println("4. Exit");
+
+
         return 0;
     }
 
     public void printHeader(String menuHeader){
-
+        System.out.println(menuHeader);
+        System.out.println("================");
     }
 
     public void printResult(PanelResult result){
-        
+        System.out.println(result + "success: " + result.isSuccess());
     }
 
     public void printPanels(String sectionName, List<Panel> panels){
-
+        for (Panel panel : panels) {
+            if (panel.getSection().equals(sectionName)) {
+                System.out.println(panel);
+            }
+        }
     }
 
     public Panel choosePanel(String sectionName, List<Panel> panels){

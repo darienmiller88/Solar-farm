@@ -1,9 +1,11 @@
 package learn.solar.domain;
 
 import java.util.List;
+import java.util.Objects;
 
 import learn.solar.data.DataException;
 import learn.solar.data.PanelFileRepository;
+import learn.solar.models.Material;
 import learn.solar.models.Panel;
 
 public class PanelService {
@@ -22,7 +24,7 @@ public class PanelService {
      * @throws DataException
      */
     public List<Panel> findBySection(String section) throws DataException{
-        if (section.equals("") || section == null) {
+        if (section == null || section.equals("")) {
             return null;
         }
 
@@ -87,7 +89,7 @@ public class PanelService {
         PanelResult result = new PanelResult();
 
         if (id < 0) {
-            result.addErrorMessage("id cannot be negative");
+            result.addErrorMessage("id cannot be negative.");
 
             return result;
         }
@@ -117,7 +119,7 @@ public class PanelService {
             return result;
         }
 
-        if (panel.getSection().equals("") || panel.getSection() == null) {
+        if (panel.getSection() == null || panel.getSection().equals("") ) {
             result.addErrorMessage("Section is required.");
 
             return result;
@@ -129,5 +131,43 @@ public class PanelService {
         }
 
         return result;
+    }
+
+    public static void main(String[] args) throws DataException {
+        PanelFileRepository repository = new PanelFileRepository("./data/testPanels.csv");
+        PanelService service = new PanelService(repository);
+        // Panel panel = new Panel(1, "Section", 12, 12, 2021,  Material.ASi, false);
+
+        // service.add(panel);
+
+        // Panel panel2 = new Panel(1, "Section", 13, 12, 2021,  Material.ASi, false);
+
+        // PanelResult expected = new PanelResult();
+        // PanelResult actual = service.add(panel2);
+
+        // expected.addErrorMessage("Row and column are currently taken by another Panel."); 
+
+        // System.out.println("Expected: " + expected + " actual: " + actual );
+        // System.out.println(Objects.equals(expected, actual));
+
+        Panel panel = new Panel(11, "TestSection", 12, 12, 2021,  Material.ASi, false);
+        Panel panel2 = new Panel(22, "TestSection", 14, 14, 2021,  Material.ASi, false);
+        
+        service.add(panel);
+        service.add(panel2);
+
+        Panel updatedPanel = new Panel(22, "TestSection", 130, 234, 2000,  Material.CdTe, true);
+
+        PanelResult result = service.update(updatedPanel);
+
+        System.out.println(result);
+
+        List<Panel> panels = repository.findAllPanels();
+
+        for (Panel p : panels) {
+            System.out.println(p);
+        }
+
+        // System.out.println("contains updated panel: " + panels.contains(updatedPanel));
     }
 }
