@@ -50,7 +50,7 @@ public class Controller {
                     updatePanel();
                     break;
                 case REMOVE_PANEL:
-
+                    deletePanel();
                     break;
             
                 default:
@@ -169,8 +169,35 @@ public class Controller {
         }   
     }
 
-    private void deletePanel(){
+    private void deletePanel() throws DataException{
+        System.out.println("Remove a Panel");
+        System.out.println("==============");
 
+        String sectionName = readRequiredString("Section: ");
+        int row = view.readRequiredInt("Row: ");
+        int column = view.readRequiredInt("Column: ");
+
+        List<Panel> panels = service.findAllPanels();
+        Panel panelToDelete = null;
+
+        for (Panel panel : panels) {
+            if (panel.getSection().equals(sectionName) && panel.getRow() == row && panel.getColumn() == column) {
+                panelToDelete = panel;
+                break;
+            }
+        }
+
+        if (panelToDelete == null) {
+            System.out.printf("Panel %s-%s-%s does not exist.", sectionName, row, column);
+        }else{
+            PanelResult result = service.deleteById(panelToDelete.getId());
+
+            if (!result.isSuccess()) {
+                System.out.println(result);
+            }else{
+                System.out.printf("Panel %s-%s-%s removed!", sectionName, row, column);
+            }
+        }
     }
 
     public String readRequiredString(String prompt){
