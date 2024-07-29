@@ -1,3 +1,5 @@
 id,section,row,column,installation_year,material,tracking
-12,Test,1,20,2019,Multicrystalline Silicon,1
-5,LowerHill,5,75,2010,Cadmium Telluride,0
+12,New One's,3,10,2010,Copper Indium Gallium Selenide,0
+13,New One's,5,10,2012,Cadmium Telluride,1
+14,New One's,2,13,2024,Amorphous Silicon,1
+15,HighTech,105,20,2001,Monocrystalline Silicon,0

@@ -1,4 +1,4 @@
-package main.java.learn.solar.data;
+package learn.solar.data;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 // import main.java.learn.solar.domain.PanelResult;
-import main.java.learn.solar.models.Material;
-import main.java.learn.solar.models.Panel;
+import learn.solar.models.Material;
+import learn.solar.models.Panel;
 
 public class PanelFileRepository implements PanelRepository{
     private String filePath;
@@ -155,7 +155,7 @@ public class PanelFileRepository implements PanelRepository{
     private String serialize(Panel panel) {
         return String.format("%s,%s,%s,%s,%s,%s,%s", 
                 panel.getId(),
-                panel.getSection(),
+                removeCommas(panel.getSection()),
                 panel.getRow(),
                 panel.getColumn(),
                 panel.getInstallationYear(),
@@ -184,11 +184,47 @@ public class PanelFileRepository implements PanelRepository{
         panel.setInstallationYear(Integer.parseInt(elements[4]));
 
         //The sixth item should be the material to be used for the solar panel.
-        panel.setMaterial(Material.valueOf(elements[5]));
+        panel.setMaterial(Material.fromMaterialName(elements[5]));
 
         //The seventh and final item should be whether or not the solar panel is tracking.
         panel.setTracking(Integer.parseInt(elements[6]) == 1);
 
         return panel;
+    }
+
+    private String removeCommas(String line){
+        if (line.contains(",")) {
+            System.out.println("line: " + line);
+            return line.replace(",", "");
+        }
+
+        return line;
+    }
+
+    public static void main(String[] args) throws DataException {
+        PanelFileRepository repository = new PanelFileRepository("./data/panels.csv");
+
+        List<Panel> panels = repository.findAll();
+        
+        System.out.println("initial list of panels");
+        for (Panel panel : panels) {
+            System.out.println(panel);
+        }
+
+        Panel p = new Panel(12, "New One's", 3, 10, 2010, Material.CIGS, false);
+        Panel p2 = new Panel(13, "New One's", 5, 10, 2012, Material.CdTe, true);
+        Panel p3 = new Panel(14, "New One's", 2, 13, 2024, Material.ASi, true);
+        Panel p4 = new Panel(15, "High,Tech", 105, 20, 2001, Material.MonoSi, false);
+
+        repository.add(p);
+        repository.add(p2);
+        repository.add(p3);
+        repository.add(p4);
+        panels = repository.findAll();
+
+        System.out.println("\nPanels after adding two");
+        for (Panel panel : panels) {
+            System.out.println(panel);
+        }   
     }
 }

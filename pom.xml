@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>learn</groupId>
-    <artifactId>solar-panels</artifactId>
+    <artifactId>learn</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -21,4 +21,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
 </project>

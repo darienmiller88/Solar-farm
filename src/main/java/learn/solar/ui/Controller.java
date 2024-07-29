@@ -1,6 +1,6 @@
-package main.java.learn.solar.ui;
+package learn.solar.ui;
 
-import main.java.learn.solar.domain.PanelService;
+import learn.solar.domain.PanelService;
 
 public class Controller {
     private View view;

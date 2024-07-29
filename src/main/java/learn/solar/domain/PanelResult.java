@@ -1,10 +1,10 @@
-package main.java.learn.solar.domain;
+package learn.solar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import main.java.learn.solar.models.Panel;
+import learn.solar.models.Panel;
 
 public class PanelResult {
     private ArrayList<String> messages = new ArrayList<>();

@@ -1,4 +1,4 @@
-package main.java.learn.solar.domain;
+package learn.solar.domain;
 
 public class PanelService {
     

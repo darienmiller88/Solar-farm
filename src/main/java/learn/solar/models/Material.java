@@ -1,4 +1,4 @@
-package main.java.learn.solar.models;
+package learn.solar.models;
 
 public enum Material {
     McSi("Multicrystalline Silicon"),
@@ -14,6 +14,15 @@ public enum Material {
     @Override
     public String toString(){
         return materialName;
+    }
+
+    public static Material fromMaterialName(String materialName) {
+        for (Material material : Material.values()) {
+            if (material.materialName.equalsIgnoreCase(materialName)) {
+                return material;
+            }
+        }
+        throw new IllegalArgumentException("No enum constant with materialName " + materialName);
     }
 
     private String materialName;

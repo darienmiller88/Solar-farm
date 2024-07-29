@@ -1,8 +1,8 @@
-package main.java.learn.solar.data;
+package learn.solar.data;
 
 import java.util.List;
 
-import main.java.learn.solar.models.Panel;
+import learn.solar.models.Panel;
 
 /**
  * PanelRepository

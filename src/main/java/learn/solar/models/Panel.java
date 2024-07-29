@@ -1,4 +1,4 @@
-package main.java.learn.solar.models;
+package learn.solar.models;
 
 public class Panel {
     private int id;
@@ -79,4 +79,16 @@ public class Panel {
         this.tracking = tracking;
     }
 
+    @Override
+    public String toString(){
+        return String.format("%s %s %s %s %s %s %s",
+                id,
+                section,
+                row,
+                column,
+                installationYear,
+                material.toString(),
+                isTracking() ?  "not tracking" : "is tracking"
+        );
+    }
 }

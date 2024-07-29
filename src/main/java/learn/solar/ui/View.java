@@ -1,11 +1,11 @@
-package main.java.learn.solar.ui;
+package learn.solar.ui;
 
 import java.util.List;
 import java.util.Scanner;
 
-import main.java.learn.solar.domain.PanelResult;
-import main.java.learn.solar.models.Material;
-import main.java.learn.solar.models.Panel;
+import learn.solar.domain.PanelResult;
+import learn.solar.models.Material;
+import learn.solar.models.Panel;
 
 public class View {
     private Scanner console;

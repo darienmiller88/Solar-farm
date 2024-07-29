@@ -1,4 +1,4 @@
-package main.java.learn.solar;
+package learn.solar;
 
 public class Assessment03 {
 
