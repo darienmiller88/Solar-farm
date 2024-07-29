@@ -105,30 +105,8 @@ public class PanelFileRepository implements PanelRepository{
         return false;
     }
 
-    /**
-     * Description: Will take in a list of panels to overwrite the csv file with new data.
-     * 
-     * @param panels
-     */
-    private void overwriteCsvWithNewData(List<Panel> panels){
-        PrintWriter writer = null;
-
-        try {
-            writer = new PrintWriter(filePath);
-
-            writer.println(HEADER);
-            for (Panel panel : panels) {
-                writer.println(serialize(panel));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally{
-            writer.close();
-        }
-    }
-
-    // -- finds all Panels in the data source (file), does not need to be public
-    public List<Panel> findAllPanels() throws DataException{
+     // -- finds all Panels in the data source (file), does not need to be public
+     public List<Panel> findAllPanels() throws DataException{
         ArrayList<Panel> result = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -149,6 +127,28 @@ public class PanelFileRepository implements PanelRepository{
         }
 
         return result;
+    }
+
+    /**
+     * Description: Will take in a list of panels to overwrite the csv file with new data.
+     * 
+     * @param panels
+     */
+    private void overwriteCsvWithNewData(List<Panel> panels){
+        PrintWriter writer = null;
+
+        try {
+            writer = new PrintWriter(filePath);
+
+            writer.println(HEADER);
+            for (Panel panel : panels) {
+                writer.println(serialize(panel));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally{
+            writer.close();
+        }
     }
 
     // -- convert a Panel into a String (a line) in the file
@@ -219,7 +219,6 @@ public class PanelFileRepository implements PanelRepository{
         //     System.out.println(panel);
         // }
 
-        Panel p = new Panel(12, "Modern Tech", 123, 210, 2013, Material.CIGS, false);
         // Panel p2 = new Panel(13, "New One's", 5, 10, 2012, Material.CdTe, true);
         // Panel p3 = new Panel(14, "New One's", 2, 13, 2024, Material.ASi, true);
         // Panel p4 = new Panel(15, "High,Tech", 105, 20, 2001, Material.MonoSi, false);

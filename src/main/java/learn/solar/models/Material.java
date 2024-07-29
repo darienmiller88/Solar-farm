@@ -16,13 +16,19 @@ public enum Material {
         return materialName;
     }
 
+    /**
+     * 
+     * @param materialName
+     * @return Material enum that matches materialName
+     */
     public static Material fromMaterialName(String materialName) {
         for (Material material : Material.values()) {
             if (material.materialName.equalsIgnoreCase(materialName)) {
                 return material;
             }
         }
-        throw new IllegalArgumentException("No enum constant with materialName " + materialName);
+
+        throw new IllegalArgumentException("No enum with the following name: " + materialName);
     }
 
     private String materialName;

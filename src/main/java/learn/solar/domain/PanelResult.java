@@ -10,6 +10,10 @@ public class PanelResult {
     private ArrayList<String> messages = new ArrayList<>();
     private Panel panel;
 
+    public PanelResult(){
+        
+    }
+
     public Panel getPanel() {
         return panel;
     }
