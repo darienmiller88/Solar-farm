@@ -30,7 +30,7 @@ public class PanelFileRepository implements PanelRepository{
      */
     public List<Panel> findBySection(String section) throws DataException{
         List<Panel> panelsBySection = new ArrayList<>();
-        List<Panel> allPanels = findAll();
+        List<Panel> allPanels = findAllPanels();
         
         for (Panel panel : allPanels) {
             if (panel.getSection().equals(section)) {
@@ -69,7 +69,7 @@ public class PanelFileRepository implements PanelRepository{
      * @throws DataException
      */
     public boolean update(Panel panelToUpdate) throws DataException{
-        List<Panel> panels = findAll();
+        List<Panel> panels = findAllPanels();
 
         for (int i = 0; i < panels.size(); i++) {
             if (panels.get(i).getId() == panelToUpdate.getId()) {
@@ -91,14 +91,14 @@ public class PanelFileRepository implements PanelRepository{
      * @throws DataException
      */
     public boolean deleteById(int id) throws DataException{
-        List<Panel> panels = findAll();
+        List<Panel> panels = findAllPanels();
 
         for (int i = 0; i < panels.size(); i++) {
             if (panels.get(i).getId() == id) {
-                panels.remove(id);
+                panels.remove(i);
                 overwriteCsvWithNewData(panels);
 
-                return  true;
+                return true;
             }
         }
 
@@ -128,7 +128,7 @@ public class PanelFileRepository implements PanelRepository{
     }
 
     // -- finds all Panels in the data source (file), does not need to be public
-    private List<Panel> findAll() throws DataException{
+    public List<Panel> findAllPanels() throws DataException{
         ArrayList<Panel> result = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -194,7 +194,6 @@ public class PanelFileRepository implements PanelRepository{
 
     private String removeCommas(String line){
         if (line.contains(",")) {
-            System.out.println("line: " + line);
             return line.replace(",", "");
         }
 
@@ -204,27 +203,36 @@ public class PanelFileRepository implements PanelRepository{
     public static void main(String[] args) throws DataException {
         PanelFileRepository repository = new PanelFileRepository("./data/panels.csv");
 
-        List<Panel> panels = repository.findAll();
+        List<Panel> panels = repository.findAllPanels();
         
         System.out.println("initial list of panels");
         for (Panel panel : panels) {
             System.out.println(panel);
         }
 
-        Panel p = new Panel(12, "New One's", 3, 10, 2010, Material.CIGS, false);
-        Panel p2 = new Panel(13, "New One's", 5, 10, 2012, Material.CdTe, true);
-        Panel p3 = new Panel(14, "New One's", 2, 13, 2024, Material.ASi, true);
-        Panel p4 = new Panel(15, "High,Tech", 105, 20, 2001, Material.MonoSi, false);
+        // System.out.println(repository.deleteById(1));
+        // System.out.println("found 13 " + repository.deleteById(13));
+        // panels = repository.findAllPanels();
 
-        repository.add(p);
-        repository.add(p2);
-        repository.add(p3);
-        repository.add(p4);
-        panels = repository.findAll();
+        // System.out.println("list of panels after deleting");
+        // for (Panel panel : panels) {
+        //     System.out.println(panel);
+        // }
 
-        System.out.println("\nPanels after adding two");
-        for (Panel panel : panels) {
-            System.out.println(panel);
-        }   
+        Panel p = new Panel(12, "Modern Tech", 123, 210, 2013, Material.CIGS, false);
+        // Panel p2 = new Panel(13, "New One's", 5, 10, 2012, Material.CdTe, true);
+        // Panel p3 = new Panel(14, "New One's", 2, 13, 2024, Material.ASi, true);
+        // Panel p4 = new Panel(15, "High,Tech", 105, 20, 2001, Material.MonoSi, false);
+
+        // repository.add(p);
+        // repository.add(p2);
+        // repository.add(p3);
+        // repository.add(p4);
+        // panels = repository.findAllPanels();
+
+        // System.out.println("\nPanels after adding two");
+        // for (Panel panel : panels) {
+        //     System.out.println(panel);
+        // }   
     }
 }
