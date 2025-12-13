@@ -91,4 +91,22 @@ public class Panel {
                 isTracking() ?  "yes" : "no"
         );
     }
+
+    @Override
+    public boolean equals(Object o){
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || o.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Panel otherPanel = (Panel) o;
+
+        return (this.id == otherPanel.id && this.section.equals(otherPanel.section) && this.row == otherPanel.row
+            && this.column == otherPanel.column && this.material.equals(otherPanel.material) 
+            && this.installationYear == otherPanel.installationYear && this.tracking == otherPanel.tracking
+        );
+    }
 }

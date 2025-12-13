@@ -9,6 +9,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+
 public class PanelFileRepositoryTest {
     PanelFileRepository repository = new PanelFileRepository("./data/testPanels.csv");
     int numInitialPanels;
@@ -16,6 +21,12 @@ public class PanelFileRepositoryTest {
     @BeforeEach
     void setup() throws DataException {
         numInitialPanels = repository.findAllPanels().size();
+
+        // Path seedPath = Paths.get(SEED_FILE_PATH);
+        // Path testPath = Paths.get(TEST_FILE_PATH);
+
+        // Files.copy(seedPath, testPath, StandardCopyOption.REPLACE_EXISTING);
+
     }
 
     //Change findAllPanels() to public to test

@@ -7,7 +7,7 @@ import learn.solar.domain.PanelService;
 import learn.solar.ui.Controller;
 import learn.solar.ui.View;
 
-public class Assessment03 {
+public class App {
 
     public static void main(String[] args) throws DataException {
         View view = new View();

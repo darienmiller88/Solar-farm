@@ -58,18 +58,7 @@ public class View {
         System.out.println("============");
         String sectionName = readRequiredString("Section: ");
         int row = readRequiredInt("Row: ");
-
-        // while (row > 250 || row < 1) {
-        //     System.out.print("Row must be between 1 and 250");
-        //     row = readRequiredInt("Row: ");
-        // }
-
         int column = readRequiredInt("Column: ");
-
-        // while (column > 250 || column < 0) {
-        //     System.out.print("Column must be between 0 and 250");
-        //     row = readRequiredInt("Column: ");
-        // }
 
         System.out.print("Enter Material: ");
         Material material = Material.fromMaterialName(console.nextLine());
@@ -105,13 +94,13 @@ public class View {
         return null;
     }
      
-    public String readSection(){
-        return "";
-    }
+    // public String readSection(){
+    //     return "";
+    // }
 
-    private String readString(String stringToRead) {
-        return "";
-    }
+    // private String readString(String stringToRead) {
+    //     return "";
+    // }
 
     public String readRequiredString(String requiredString){
         System.out.print(requiredString);
@@ -145,11 +134,11 @@ public class View {
         } 
     }
 
-    private int readInt(String num, int min, int max){
-        return 0;
-    }
+    // private int readInt(String num, int min, int max){
+    //     return 0;
+    // }
 
-    private Material readMaterial(){
-        return null;
-    }
+    // private Material readMaterial(){
+    //     return null;
+    // }
 }

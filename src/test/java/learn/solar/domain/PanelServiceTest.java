@@ -209,10 +209,12 @@ public class PanelServiceTest {
 
         Panel updatedPanel = new Panel(2, "TestSection", 130, 234, 2000,  Material.CdTe, true);
 
+        //Update successful
         assertEquals(new PanelResult(), service.update(updatedPanel));
 
         List<Panel> panels = repository.findAllPanels();
         
+        //Check to see if the updated panel exists in the csv.
         assertTrue(panels.contains(updatedPanel));
 
         //Reset csv to default.

@@ -201,7 +201,7 @@ public class PanelFileRepository implements PanelRepository{
     }
 
     public static void main(String[] args) throws DataException {
-        PanelFileRepository repository = new PanelFileRepository("./data/panels.csv");
+        PanelFileRepository repository = new PanelFileRepository("./data/testPanels.csv");
 
         List<Panel> panels = repository.findAllPanels();
         
@@ -209,6 +209,12 @@ public class PanelFileRepository implements PanelRepository{
         for (Panel panel : panels) {
             System.out.println(panel);
         }
+
+        Panel panel = new Panel(1, "TestSection", 12, 12, 2021,  Material.ASi, false);
+        Panel panel2 = new Panel(2, "TestSection", 13, 13, 2021,  Material.ASi, false);
+       
+        repository.add(panel);
+        repository.add(panel2);
 
         // System.out.println(repository.deleteById(1));
         // System.out.println("found 13 " + repository.deleteById(13));

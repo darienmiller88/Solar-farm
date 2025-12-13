@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b41fdab7-d856-40ea-bb0e-57c1ac03f7e0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/data/seed.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/testPanels.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/testPanels.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/solar/Assessment03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/solar/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/solar/data/PanelFileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/solar/data/PanelFileRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/solar/models/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/solar/models/Panel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/solar/ui/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/solar/ui/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/solar/ui/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/solar/ui/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/learn/solar/data/PanelFileRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/solar/data/PanelFileRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/learn/solar/domain/PanelServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/solar/domain/PanelServiceTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2jubHKampgsgGrauRSh35lj73Lk" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Assessment03.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PanelService.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PanelServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PanelServiceTest.shouldFindPanelsWithValidSection.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PanelServiceTest.shouldNotAddEmptyOrNullSection.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PanelServiceTest.shouldNotAddInvalidRowOrColumn.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PanelServiceTest.shouldNotAddInvalidYear.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PanelServiceTest.shouldNotAddWhenRowColumnTaken.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PanelServiceTest.shouldNotFindPanelsWhenSectionNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;assessment03-darien-miller&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/darie/OneDrive/Desktop/HTDTalent/module03-assessment-solarfarm-darienmiller88&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Csv.Editor.Settings&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.Assessment03">
+    <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="learn.solar.App" />
+      <module name="learn" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="learn.solar.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Assessment03" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="learn.solar.App" />
+      <module name="learn" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="learn.solar.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PanelServiceTest.shouldFindPanelsWithValidSection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="learn" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="learn.solar.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="learn.solar.domain" />
+      <option name="MAIN_CLASS_NAME" value="learn.solar.domain.PanelServiceTest" />
+      <option name="METHOD_NAME" value="shouldFindPanelsWithValidSection" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PanelServiceTest.shouldNotAddInvalidRowOrColumn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="learn" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="learn.solar.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="learn.solar.domain" />
+      <option name="MAIN_CLASS_NAME" value="learn.solar.domain.PanelServiceTest" />
+      <option name="METHOD_NAME" value="shouldNotAddInvalidRowOrColumn" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PanelServiceTest.shouldNotAddWhenRowColumnTaken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="learn" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="learn.solar.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="learn.solar.domain" />
+      <option name="MAIN_CLASS_NAME" value="learn.solar.domain.PanelServiceTest" />
+      <option name="METHOD_NAME" value="shouldNotAddWhenRowColumnTaken" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PanelServiceTest.shouldNotFindPanelsWhenSectionNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="learn" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="learn.solar.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="learn.solar.domain" />
+      <option name="MAIN_CLASS_NAME" value="learn.solar.domain.PanelServiceTest" />
+      <option name="METHOD_NAME" value="shouldNotFindPanelsWhenSectionNotFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="module03-assessment-solarfarm-darienmiller88" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="module03-assessment-solarfarm-darienmiller88" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.App" />
+      <item itemvalue="Application.Assessment03" />
+      <item itemvalue="JUnit.PanelServiceTest.shouldFindPanelsWithValidSection" />
+      <item itemvalue="JUnit.PanelServiceTest.shouldNotAddInvalidRowOrColumn" />
+      <item itemvalue="JUnit.PanelServiceTest.shouldNotAddWhenRowColumnTaken" />
+      <item itemvalue="JUnit.PanelServiceTest.shouldNotFindPanelsWhenSectionNotFound" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Assessment03" />
+        <item itemvalue="JUnit.PanelServiceTest.shouldFindPanelsWithValidSection" />
+        <item itemvalue="JUnit.PanelServiceTest.shouldNotFindPanelsWhenSectionNotFound" />
+        <item itemvalue="JUnit.PanelServiceTest.shouldNotAddWhenRowColumnTaken" />
+        <item itemvalue="JUnit.PanelServiceTest.shouldNotAddInvalidRowOrColumn" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b41fdab7-d856-40ea-bb0e-57c1ac03f7e0" name="Changes" comment="" />
+      <created>1722239820025</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1722239820025</updated>
+    </task>
+    <servers />
+  </component>
+</project>

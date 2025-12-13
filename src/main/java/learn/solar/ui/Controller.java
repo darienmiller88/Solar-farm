@@ -30,7 +30,7 @@ public class Controller {
         while (option != EXIT) {
             switch (option) {
                 case EXIT:
-                    continue;
+                    break;
                 case FIND_PANEL:
                     viewBySection();
                     break;
@@ -116,7 +116,7 @@ public class Controller {
         }
 
         if (panelToUpdate == null) {
-            System.out.printf("Panel %s-%s-%s does not exist.", sectionName, row, column);
+            System.out.printf("Panel %s-%s-%s does not exist.\n", sectionName, row, column);
         } else{
             System.out.printf("Editing %s-%s-%s", sectionName, row, column);
             System.out.println("Press [Enter] to keep original value.");
@@ -178,7 +178,7 @@ public class Controller {
         }
 
         if (panelToDelete == null) {
-            System.out.printf("Panel %s-%s-%s does not exist.", sectionName, row, column);
+            System.out.printf("Panel %s-%s-%s does not exist.\n", sectionName, row, column);
         }else{
             PanelResult result = service.deleteById(panelToDelete.getId());
 
